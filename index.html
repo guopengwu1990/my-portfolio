@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的作品集 | Pinterest Style</title>
+    <title>吴国鹏 Corbett Woo | Senior Art Director Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Pinterest 瀑布流核心：多列布局 */
+        html { scroll-behavior: smooth; }
+        
+        /* Pinterest 瀑布流布局逻辑 */
         .masonry-grid {
             column-count: 1;
             column-gap: 1.5rem;
             width: 100%;
         }
-        /* 响应式：平板 2 列，桌面 3 列，大屏 4 列 */
         @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
         @media (min-width: 1280px) { .masonry-grid { column-count: 4; } }
@@ -26,193 +27,192 @@
         .gold-accent { color: #b8860b; }
         .bg-gold { background-color: #b8860b; }
         
-        /* 悬浮阴影动画 */
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .card-hover:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 30px 60px -12px rgba(184, 134, 11, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.2); 
+        }
+
+        /* 针对超长海报图的优化 */
+        .project-image {
+            max-height: 800px;
+            object-fit: cover;
+            object-position: top;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-[#fafafa] text-gray-900 font-sans selection:bg-gold/20">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="container mx-auto py-4 px-6 flex justify-between items-center">
-            <div class="text-xl font-black tracking-tighter italic">DESIGN.LAB</div>
-            <div class="flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
-                <a href="#" class="hover:gold-accent">Works</a>
-                <a href="#" class="hover:gold-accent">About</a>
-                <a href="mailto:your@email.com" class="bg-black text-white px-6 py-2 rounded-full hover:bg-gold transition-colors">Contact</a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100">
+        <div class="container mx-auto py-5 px-6 flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tighter italic">CORBETT<span class="gold-accent">.</span>DESIGN</div>
+            <div class="flex items-center gap-10 text-xs font-bold uppercase tracking-[0.2em]">
+                <a href="#works" class="hover:gold-accent transition-colors">Works</a>
+                <a href="#about" class="hover:gold-accent transition-colors">About</a>
+                <a href="mailto:guopengwu1990@gmail.com" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gold transition-all hover:scale-105">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header class="container mx-auto pt-20 pb-12 px-6">
-        <div class="max-w-4xl">
-            <h1 id="user-name" class="text-5xl md:text-7xl font-bold mb-6 leading-tight">载入中...</h1>
-            <p id="user-bio" class="text-xl text-gray-500 leading-relaxed">正在同步您的个人资料内容...</p>
+    <header class="container mx-auto pt-32 pb-20 px-6">
+        <div class="max-w-5xl">
+            <h1 id="user-name" class="text-7xl md:text-9xl font-bold mb-10 tracking-tighter leading-[0.85]">载入中...</h1>
+            <p id="user-bio" class="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed">正在准备作品集...</p>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 pb-20">
+    <section id="about" class="container mx-auto px-6 py-24 border-t border-gray-100">
+        <div class="grid lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-4">
+                <h2 class="text-4xl font-bold mb-4">About Me</h2>
+                <div class="h-1 w-20 bg-gold"></div>
+                <p class="mt-6 text-sm text-gray-400 uppercase tracking-widest font-bold">12 Years of Excellence</p>
+            </div>
+            <div class="lg:col-span-8 space-y-8">
+                <p class="text-2xl md:text-3xl text-gray-700 font-medium leading-snug">
+                    我是一名拥有 <span class="text-black underline decoration-gold underline-offset-8">12 年电商行业经验</span> 的视觉设计美术指导。
+                </p>
+                <div class="text-lg text-gray-500 leading-loose space-y-6">
+                    <p>深刻理解品牌视觉传达的核心价值，擅长为新品牌从零开始建立完整的视觉体系。曾领导过 20+ 人的设计团队，具备卓越的跨部门沟通与解决团队痛点的空降管理能力。</p>
+                    <p>我相信设计不仅是美学，更是战略——每一个设计决策都应该为品牌的商业目标服务。目前深度探索 AI 创意工具在设计落地中的极限，以技术驱动视觉生产力。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
+                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">品牌体系构建</h4>
+                        <p class="text-sm text-gray-500">Brand Identity & System Design</p>
+                    </div>
+                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
+                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">AI 创意落地</h4>
+                        <p class="text-sm text-gray-500">AI-Driven Creative Execution</p>
+                    </div>
+                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
+                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">20+ 团队领导</h4>
+                        <p class="text-sm text-gray-500">Creative Team Management</p>
+                    </div>
+                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
+                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">大客户经验</h4>
+                        <p class="text-sm text-gray-500">Key Account Brand Strategy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="works" class="container mx-auto px-6 py-20 bg-white shadow-[0_-1px_0_0_rgba(0,0,0,0.05)]">
+        <div class="flex items-end justify-between mb-16">
+            <div>
+                <h2 class="text-5xl font-bold tracking-tighter">Selected Works</h2>
+                <p class="text-gray-400 mt-2 tracking-widest uppercase text-xs">精选案例展示 / 2024-2026</p>
+            </div>
+        </div>
+        
         <div id="project-container" class="masonry-grid">
             </div>
     </main>
 
+    <footer class="bg-black text-white py-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-2xl font-black italic">CORBETT<span class="gold-accent">.</span></div>
+            <div class="text-center md:text-right">
+                <p class="text-gray-500 text-xs mb-2">LET'S COLLABORATE</p>
+                <a href="mailto:guopengwu1990@gmail.com" class="text-xl hover:gold-accent transition-colors">guopengwu1990@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // 1. 修改你的个人信息
         const profileData = {
-            name: "吴国鹏 (Corbett Woo)", 
-            bio: "资深美术指导 Senior Art Director。12 年电商行业大客户设计经验 | 品牌视觉体系建立 | AI 创意执行。"
+            name: "Corbett Woo", 
+            bio: "Senior Art Director / 美术指导。12年电商视觉专家，深谙品牌战略与 AI 创意执行。"
         };
 
-        // 2. 修改你的作品数据 (你可以按需增加到 50 个)
+        // 你的作品数据（保留原有内容）
         const projectsData = [
             {
                 title: "三星ZFold5超闭合折叠",
-                tag: "Samsung Marketing Poster",
+                tag: "Samsung Poster",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E4%B8%89%E6%98%9FZFold5%E5%86%AC%E8%87%B3%E8%90%A5%E9%94%80%E6%B5%B7%E6%8A%A5/image-27521f33-ff24-4e9b-8bea-5d6c2e549caf.jpeg?w=1048&h=2102",
                 desc: "探索极简主义在现代企业形象中的应用。"
             },
             {
                 title: "三星S25植树节海报",
-                tag: "Samsung Marketing Poster",
+                tag: "Marketing Design",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E6%A4%8D%E6%A0%91%E8%8A%82%E8%90%A5%E9%94%80%E6%B5%B7%E6%8A%A5/image-f7e4c3c3-b223-4a41-8d39-e2ea4a74603e.jpeg?w=1158&h=2060",
                 desc: "S25即时简报功能展示。"
             },
             {
                 title: "三星平分秋色营销海报",
-                tag: "Samsung Marketing Poster",
+                tag: "Campaign Poster",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E5%B1%8F%E5%88%86%E7%A7%8B%E8%89%B2/image-1ebb265c-c45f-409a-b88c-9cb8d973b376.jpeg?w=1164&h=2070",
                 desc: "多任务分屏功能阐释。"
             },
             {
                 title: "三星中秋节营销海报",
-                tag: "Samsung Marketing Design",
+                tag: "Holiday Campaign",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E4%B8%89%E6%98%9F%E4%B8%AD%E7%A7%8B%E8%8A%82%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E9%A1%B5/image-1a0109aa-ac63-4a2c-a988-e2e86bf9654e.jpeg?w=1080&h=14739",
                 desc: "中秋佳节美好共此时/明月寄情。"
             },
             {
                 title: "三星Zflip5立冬营销海报",
-                tag: "Samsung Marketing Design",
+                tag: "Samsung Branding",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E4%B8%89%E6%98%9FZflip5%E7%AB%8B%E5%86%AC%E6%B5%B7%E6%8A%A5/image-5c54d1e0-544c-4323-a1f8-f1b5cc39a290.png?w=1080&h=2087",
                 desc: "展示产品大视野智能外屏。"
             },
             {
                 title: "三星W系列重阳节营销海报",
-                tag: "Samsung Marketing Design",
+                tag: "Premium Series",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E9%87%8D%E9%98%B3%E8%8A%82/image-56abbcd2-afe7-40ad-9ce4-33b6a9249fb4.jpeg?w=1142&h=2114",
                 desc: "登高凌云/帷幄之间。"
             },
             {
                 title: "三星摄影活动营销海报",
-                tag: "Samsung JShop marketing activities",
+                tag: "JShop Campaign",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E6%91%84%E5%BD%B1%E6%B4%BB%E5%8A%A8/image-22df4fcd-9e19-4d4f-8155-745799c8fdf5.jpeg?w=1125&h=8099",
                 desc: "京东店铺摄影活动奖品页面。"
             },
             {
                 title: "三星寒露节气营销海报",
-                tag: "Samsung Marketing Poster",
+                tag: "S23 Ultra Poster",
                 img: "https://69de36e97012079ceb006eee.imgix.net/Spen/image-464c62f2-6554-448c-91f6-b8f6c8edd8ab.jpeg?w=1051&h=2123",
                 desc: "S23 Ultra SPen随心表达。"
             },
             {
                 title: "三星Why Galaxy AI",
-                tag: "Samsung Marketing Poster",
+                tag: "Galaxy AI Feature",
                 img: "https://69de36e97012079ceb006eee.imgix.net/Why%20Galaxy%20AI/image-d6d895e2-51fa-4898-82ca-1d5455d9c793.jpeg?w=1080&h=12157",
                 desc: "Galaxy AI功能页。"
             },
             {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-4c9585b4-ed9a-4268-9103-9bcd84543474.jpeg?w=1128&h=1953",
-                desc: "即圈即搜。"
-            },
-            {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-7a9a9dbe-ba01-44fe-baff-43570ee4aaf3.jpeg?w=1131&h=1959",
-                desc: "笔记助手。"
-            },
-            {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-32e8873c-b24b-4379-99d7-5ef39b345797.jpeg?w=1128&h=1953",
-                desc: "通话实时翻译。"
-            },
-            {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-45f2270a-f74b-461d-9f75-55b0203f35c8.jpeg?w=1128&h=1953",
-                desc: "同传双屏翻译。"
-            },
-            {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-9487ebe9-ad13-479e-adae-787dd8235580.jpeg?w=1128&h=1953",
-                desc: "即时慢动作。"
-            },
-            {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-5494577d-fac3-4efd-84e9-2f570ac15938.jpeg?w=1128&h=1953",
-                desc: "生成式编辑。"
-            },
-            {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-cfe82285-8f70-4910-a299-125b736aa82d.jpeg?w=1128&h=1953",
-                desc: "耳机同传-倾听模式。"
-            },
-            {
-                title: "Why Galaxy AI微信分享海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E5%8A%9F%E8%83%BD/image-ac3e0fb2-e8a5-4ba7-afa8-f1ec98237119.jpeg?w=1128&h=1953",
-                desc: "智绘人像。"
-            },
-            {
-                title: "三星女人节营销活动页",
-                tag: "Samsung Marketing Poster",
+                title: "AI即梦人物合成",
+                tag: "AIGC Practice",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E6%AF%8D%E4%BA%B2%E8%8A%82/image-40566d94-b91f-4112-adf0-663d178e8bf1.jpeg?w=1080&h=16993",
                 desc: "即梦深度参与合成各人物画面。"
             },
             {
-                title: "三星披哥联名水壶海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E6%8A%AB%E5%93%A5%E8%81%94%E5%90%8D%E6%B0%B4%E5%A3%B6/image-117962a6-657b-444d-b5f8-df7e00b2af4b.jpeg?w=1165&h=2072",
-                desc: "披荆斩棘哥哥同款水壶海报。"
-            },
-            {
-                title: "三星父亲节活动页",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E7%88%B6%E4%BA%B2%E8%8A%82/image-c8fd9d9c-9c7a-408a-985f-d411d01b2fce.jpeg?w=1080&h=10302&ar=1080%3A10302",
-                desc: "这一天大声说爱爸。"
-            },
-            {
-                title: "三星耳机自适应降噪海报",
-                tag: "Samsung Marketing Poster",
-                img: "https://69de36e97012079ceb006eee.imgix.net/%E8%80%B3%E6%9C%BA%E8%87%AA%E9%80%82%E5%BA%94%E9%99%8D%E5%99%AA/image-49e9318f-58e4-4e50-973e-3cf8d99d03f9.jpeg?w=1166&h=2073",
-                desc: "包听不见的。"
-            },
-            {
                 title: "三星致爱七夕海报",
-                tag: "Samsung Marketing Poster",
+                tag: "Romantic Technology",
                 img: "https://69de36e97012079ceb006eee.imgix.net/%E7%88%B1/image-ba3669a6-17f9-48e4-ac29-8914b9946939.jpeg?w=1080&h=16240",
                 desc: "三星七夕以科技之名献上浪漫。"
-            },
-            // 你可以继续复制上面的块，直到 50 个...
+            }
         ];
 
-        // --- 逻辑处理（无需修改） ---
         function renderPage() {
             document.getElementById('user-name').innerText = profileData.name;
             document.getElementById('user-bio').innerText = profileData.bio;
 
             const container = document.getElementById('project-container');
             container.innerHTML = projectsData.map(project => `
-                <div class="masonry-item">
-                    <div class="card-hover bg-white border border-gray-100 rounded-2xl overflow-hidden">
-                        <img src="${project.img}" alt="${project.title}" class="w-full h-auto block">
-                        <div class="p-5">
-                            <span class="text-[10px] font-black tracking-widest gold-accent uppercase">${project.tag}</span>
-                            <h3 class="text-lg font-bold mt-1 group-hover:gold-accent">${project.title}</h3>
+                <div class="masonry-item group">
+                    <div class="card-hover bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+                        <div class="overflow-hidden">
+                            <img src="${project.img}" alt="${project.title}" class="project-image w-full h-auto block transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-[9px] font-black tracking-widest gold-accent border border-gold/30 px-2 py-0.5 rounded uppercase">${project.tag}</span>
+                            </div>
+                            <h3 class="text-lg font-bold group-hover:gold-accent transition-colors">${project.title}</h3>
                             <p class="text-xs text-gray-400 mt-2 leading-relaxed">${project.desc}</p>
                         </div>
                     </div>
