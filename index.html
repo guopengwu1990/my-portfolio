@@ -8,7 +8,7 @@
     <style>
         html { scroll-behavior: smooth; }
         
-        /* Pinterest 瀑布流布局逻辑 */
+        /* Pinterest 瀑布流布局 */
         .masonry-grid {
             column-count: 1;
             column-gap: 1.5rem;
@@ -33,11 +33,11 @@
             box-shadow: 0 30px 60px -12px rgba(184, 134, 11, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.2); 
         }
 
-        /* 针对超长海报图的优化 */
+        /* 移除高度限制，展示完整长图 */
         .project-image {
-            max-height: 800px;
-            object-fit: cover;
-            object-position: top;
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -46,18 +46,22 @@
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100">
         <div class="container mx-auto py-5 px-6 flex justify-between items-center">
             <div class="text-2xl font-black tracking-tighter italic">CORBETT<span class="gold-accent">.</span>DESIGN</div>
-            <div class="flex items-center gap-10 text-xs font-bold uppercase tracking-[0.2em]">
+            <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-widest">
+                <div class="hidden md:flex items-center gap-4 text-gray-400 mr-4 border-r border-gray-200 pr-6">
+                    <span>微信: 644189691</span>
+                    <span>TEL: 13264031990</span>
+                </div>
                 <a href="#works" class="hover:gold-accent transition-colors">Works</a>
                 <a href="#about" class="hover:gold-accent transition-colors">About</a>
-                <a href="mailto:13264031990@yeah.net" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gold transition-all hover:scale-105">Contact</a>
+                <a href="tel:13264031990" class="bg-black text-white px-6 py-2 rounded-full hover:bg-gold transition-all">Hire Me</a>
             </div>
         </div>
     </nav>
 
     <header class="container mx-auto pt-32 pb-20 px-6">
         <div class="max-w-5xl">
-            <h1 id="user-name" class="text-7xl md:text-9xl font-bold mb-10 tracking-tighter leading-[0.85]">载入中...</h1>
-            <p id="user-bio" class="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed">正在准备作品集...</p>
+            <h1 id="user-name" class="text-7xl md:text-9xl font-bold mb-10 tracking-tighter leading-[0.85]">Corbett Woo</h1>
+            <p id="user-bio" class="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed">Senior Art Director / 美术指导。12年电商视觉专家，深谙品牌战略与 AI 创意执行。</p>
         </div>
     </header>
 
@@ -66,45 +70,29 @@
             <div class="lg:col-span-4">
                 <h2 class="text-4xl font-bold mb-4">About Me</h2>
                 <div class="h-1 w-20 bg-gold"></div>
-                <p class="mt-6 text-sm text-gray-400 uppercase tracking-widest font-bold">12 Years of Excellence</p>
+                <p class="mt-6 text-sm text-gray-400 uppercase tracking-widest font-bold">12 Years Experience</p>
+                <div class="mt-8 space-y-2 text-sm">
+                    <p class="font-bold">微信: <span class="font-normal text-gray-600">644189691</span></p>
+                    <p class="font-bold">电话: <span class="font-normal text-gray-600">13264031990</span></p>
+                    <p class="font-bold">邮箱: <span class="font-normal text-gray-600">13264031990@yeah.net</span></p>
+                </div>
             </div>
             <div class="lg:col-span-8 space-y-8">
                 <p class="text-2xl md:text-3xl text-gray-700 font-medium leading-snug">
                     我是一名拥有 <span class="text-black underline decoration-gold underline-offset-8">12 年电商行业经验</span> 的视觉设计美术指导。
                 </p>
                 <div class="text-lg text-gray-500 leading-loose space-y-6">
-                    <p>深刻理解品牌视觉传达的核心价值，擅长为新品牌从零开始建立完整的视觉体系。曾领导过 20+ 人的设计团队，具备卓越的跨部门沟通与解决团队痛点的空降管理能力。</p>
-                    <p>我相信设计不仅是美学，更是战略——每一个设计决策都应该为品牌的商业目标服务。目前深度探索 AI 创意工具在设计落地中的极限，以技术驱动视觉生产力。</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
-                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
-                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">品牌体系构建</h4>
-                        <p class="text-sm text-gray-500">Brand Identity & System Design</p>
-                    </div>
-                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
-                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">AI 创意落地</h4>
-                        <p class="text-sm text-gray-500">AI-Driven Creative Execution</p>
-                    </div>
-                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
-                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">20+ 团队领导</h4>
-                        <p class="text-sm text-gray-500">Creative Team Management</p>
-                    </div>
-                    <div class="p-6 bg-white border border-gray-100 rounded-2xl">
-                        <h4 class="font-bold mb-2 gold-accent underline decoration-gold/20">大客户经验</h4>
-                        <p class="text-sm text-gray-500">Key Account Brand Strategy</p>
-                    </div>
+                    <p>深刻理解品牌视觉传达的核心价值。我专注于为新品牌从零建立视觉体系，并具备领导 20+ 人设计团队解决复杂问题的实战经验。</p>
+                    <p>我相信设计不仅是美学，更是战略。我善于通过思维灵活的沟通获得信任，并运用前沿 AI 工具为商业目标提供高效的设计落地解决方案。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <main id="works" class="container mx-auto px-6 py-20 bg-white shadow-[0_-1px_0_0_rgba(0,0,0,0.05)]">
-        <div class="flex items-end justify-between mb-16">
-            <div>
-                <h2 class="text-5xl font-bold tracking-tighter">Selected Works</h2>
-                <p class="text-gray-400 mt-2 tracking-widest uppercase text-xs">精选案例展示 / 2024-2026</p>
-            </div>
+    <main id="works" class="container mx-auto px-6 py-20 bg-white">
+        <div class="mb-16">
+            <h2 class="text-5xl font-bold tracking-tighter">Selected Works</h2>
+            <p class="text-gray-400 mt-2 tracking-widest uppercase text-xs">长图案例展示 / FULL LENGTH SHOWCASE</p>
         </div>
         
         <div id="project-container" class="masonry-grid">
@@ -113,21 +101,21 @@
 
     <footer class="bg-black text-white py-20 px-6">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-2xl font-black italic">CORBETT<span class="gold-accent">.</span></div>
+            <div>
+                <div class="text-2xl font-black italic mb-4">CORBETT<span class="gold-accent">.</span></div>
+                <div class="text-sm text-gray-400 space-y-1">
+                    <p>微信: 644189691</p>
+                    <p>电话: 13264031990</p>
+                </div>
+            </div>
             <div class="text-center md:text-right">
                 <p class="text-gray-500 text-xs mb-2">LET'S COLLABORATE</p>
-                <a href="mailto:guopengwu1990@gmail.com" class="text-xl hover:gold-accent transition-colors">guopengwu1990@gmail.com</a>
+                <a href="mailto:guopengwu1990@gmail.com" class="text-xl hover:gold-accent transition-colors italic font-bold">guopengwu1990@gmail.com</a>
             </div>
         </div>
     </footer>
 
     <script>
-        const profileData = {
-            name: "Corbett Woo", 
-            bio: "Senior Art Director / 美术指导。12年电商视觉专家，深谙品牌战略与 AI 创意执行。"
-        };
-
-        // 你的作品数据（保留原有内容）
         const projectsData = [
             {
                 title: "三星ZFold5超闭合折叠",
@@ -264,21 +252,14 @@
         ];
 
         function renderPage() {
-            document.getElementById('user-name').innerText = profileData.name;
-            document.getElementById('user-bio').innerText = profileData.bio;
-
             const container = document.getElementById('project-container');
             container.innerHTML = projectsData.map(project => `
                 <div class="masonry-item group">
                     <div class="card-hover bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
-                        <div class="overflow-hidden">
-                            <img src="${project.img}" alt="${project.title}" class="project-image w-full h-auto block transform group-hover:scale-105 transition-transform duration-700">
-                        </div>
+                        <img src="${project.img}" alt="${project.title}" class="project-image">
                         <div class="p-6">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="text-[9px] font-black tracking-widest gold-accent border border-gold/30 px-2 py-0.5 rounded uppercase">${project.tag}</span>
-                            </div>
-                            <h3 class="text-lg font-bold group-hover:gold-accent transition-colors">${project.title}</h3>
+                            <span class="text-[9px] font-black tracking-widest gold-accent border border-gold/30 px-2 py-0.5 rounded uppercase">${project.tag}</span>
+                            <h3 class="text-lg font-bold mt-3 group-hover:gold-accent transition-colors">${project.title}</h3>
                             <p class="text-xs text-gray-400 mt-2 leading-relaxed">${project.desc}</p>
                         </div>
                     </div>
