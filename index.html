@@ -3,43 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的作品集</title>
+    <title>我的作品集 | Pinterest Style</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Pinterest 瀑布流核心：多列布局 */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+            width: 100%;
+        }
+        /* 响应式：平板 2 列，桌面 3 列，大屏 4 列 */
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        @media (min-width: 1280px) { .masonry-grid { column-count: 4; } }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
         .gold-accent { color: #b8860b; }
         .bg-gold { background-color: #b8860b; }
-        .waterfall { columns: 1; gap: 1.5rem; }
-        @media (min-width: 768px) { .waterfall { columns: 2; } }
-        @media (min-width: 1024px) { .waterfall { columns: 3; } }
-        .card { break-inside: avoid; margin-bottom: 1.5rem; }
+        
+        /* 悬浮阴影动画 */
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
     </style>
 </head>
-<body class="bg-white text-gray-900 font-sans">
-    <nav class="container mx-auto py-6 px-4 flex justify-between items-center">
-        <div class="text-xl font-bold tracking-tighter">DESIGN.PORTFOLIO</div>
-        <div class="space-x-6 text-sm font-medium">
-            <a href="#" class="hover:text-amber-600">作品</a>
-            <a href="#" class="hover:text-amber-600">关于</a>
-            <a href="#" class="bg-black text-white px-4 py-2 rounded-full">联系我</a>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="container mx-auto py-4 px-6 flex justify-between items-center">
+            <div class="text-xl font-black tracking-tighter italic">DESIGN.LAB</div>
+            <div class="flex items-center gap-8 text-sm font-bold uppercase tracking-widest">
+                <a href="#" class="hover:gold-accent">Works</a>
+                <a href="#" class="hover:gold-accent">About</a>
+                <a href="mailto:your@email.com" class="bg-black text-white px-6 py-2 rounded-full hover:bg-gold transition-colors">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <header class="container mx-auto pt-20 pb-16 px-4">
-        <span class="inline-block px-3 py-1 bg-gold text-white text-xs font-bold rounded-full mb-4">AVAILABLE FOR HIRE</span>
-        <h1 class="text-6xl font-bold mb-6">你好，我是设计师</h1>
-        <p class="text-xl text-gray-500 max-w-2xl">这是我的个人作品展示页面，欢迎查看。</p>
+    <header class="container mx-auto pt-20 pb-12 px-6">
+        <div class="max-w-4xl">
+            <h1 id="user-name" class="text-5xl md:text-7xl font-bold mb-6 leading-tight">载入中...</h1>
+            <p id="user-bio" class="text-xl text-gray-500 leading-relaxed">正在同步您的个人资料内容...</p>
+        </div>
     </header>
 
-    <main class="container mx-auto px-4 pb-20">
-        <div class="waterfall">
-            <div class="card group border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-all">
-                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800" class="w-full">
-                <div class="p-5">
-                    <span class="text-xs font-bold gold-accent uppercase">UI/UX 设计</span>
-                    <h3 class="text-lg font-bold mt-1">项目案例展示</h3>
-                </div>
-            </div>
+    <main class="container mx-auto px-6 pb-20">
+        <div id="project-container" class="masonry-grid">
             </div>
     </main>
+
+    <script>
+        // 1. 修改你的个人信息
+        const profileData = {
+            name: "郭先生 (Guo Pengwu)", 
+            bio: "资深视觉专家。专注于品牌识别、数字化体验与商业美学。这里展示了我近期的 50+ 项设计实践。"
+        };
+
+        // 2. 修改你的作品数据 (你可以按需增加到 50 个)
+        const projectsData = [
+            {
+                title: "品牌视觉重构",
+                tag: "BRANDING",
+                img: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800",
+                desc: "探索极简主义在现代企业形象中的应用。"
+            },
+            {
+                title: "移动端交互原型",
+                tag: "UI/UX",
+                img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800",
+                desc: "为金融应用设计的深色模式界面。"
+            },
+            {
+                title: "年度画册设计",
+                tag: "LAYOUT",
+                img: "https://images.unsplash.com/photo-1541462608141-ad4d45a4ee6c?w=800",
+                desc: "500页精装艺术画册，采用特殊工艺印刷。"
+            },
+            // 你可以继续复制上面的块，直到 50 个...
+        ];
+
+        // --- 逻辑处理（无需修改） ---
+        function renderPage() {
+            document.getElementById('user-name').innerText = profileData.name;
+            document.getElementById('user-bio').innerText = profileData.bio;
+
+            const container = document.getElementById('project-container');
+            container.innerHTML = projectsData.map(project => `
+                <div class="masonry-item">
+                    <div class="card-hover bg-white border border-gray-100 rounded-2xl overflow-hidden">
+                        <img src="${project.img}" alt="${project.title}" class="w-full h-auto block">
+                        <div class="p-5">
+                            <span class="text-[10px] font-black tracking-widest gold-accent uppercase">${project.tag}</span>
+                            <h3 class="text-lg font-bold mt-1 group-hover:gold-accent">${project.title}</h3>
+                            <p class="text-xs text-gray-400 mt-2 leading-relaxed">${project.desc}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        renderPage();
+    </script>
 </body>
 </html>
